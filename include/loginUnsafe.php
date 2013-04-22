@@ -3,6 +3,7 @@
 function Login($userName, $password) {
     $sql = "
         select
+            id,
             login
         from
             user

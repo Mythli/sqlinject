@@ -5,16 +5,19 @@
         <div id="legend">
           <legend class="">Login</legend>
         </div>
-        <?php if(IsUserLoggedIn()) { ?>
-          <div class="alert alert-success">  
-            <a class="close" data-dismiss="alert">×</a>
+        <?php if(IsUserLoggedIn()) { ?>  
+            
                 <?php
                 if($_GET['action'] != 'logout') {
-                    echo '<strong>Erfolgreich eingeloggt!</strong> Sie haben sich erfolgreich eingeloggt.';
+                    echo '<div class="alert alert-success"><a class="close" data-dismiss="alert">×</a><strong>Erfolgreich eingeloggt!</strong> Sie haben sich erfolgreich eingeloggt als '.$_SESSION['loginData']['login'].'.</div>';
                 }
                 ?>
-          </div>
         <?php } else { ?>
+            <?php
+            if($_GET['action'] == 'logout') {
+                echo '<div class="alert alert-success"><a class="close" data-dismiss="alert">×</a><strong>Erfolgreich ausgeloggt!</strong> Sie haben sich erfolgreich ausgeloggt.</div>';
+            }
+            ?>
             <div class="control-group">
               <!-- Username -->
               <label class="control-label"  for="username">Username</label>
