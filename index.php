@@ -9,16 +9,22 @@ if($_GET['action']=='logout') {
     session_unset();
 }
 
-if($_GET['loginType'] == 'safe') {
-    // use safe login
-    require_once 'include/login.php';
-} else {
-    // use unsafe login (default)
-    require_once 'include/loginUnsafe.php';
+// set safety mode
+if(!isset($_SESSION['safe'])) {
+	$_SESSION['safe'] = FALSE;
+}
+if(isset($_GET['mode'])) {
+	if($_GET['mode'] == 'safe') {
+		$_SESSION['safe'] = TRUE;
+	} else if($_GET['mode'] == 'unsafe') {
+		$_SESSION['safe'] = FALSE;
+	}
 }
 
+require_once 'include/'.  SafePath().'/login.php';
+
 // store login data in session variable
-if(isset($_POST['username']) && isset($_POST['password'])) {
+if($_GET['action'] == 'login' && isset($_POST['username']) && isset($_POST['password'])) {
     $_SESSION['loginData'] = Login($_POST['username'], $_POST['password']);
 }
 ?>
@@ -35,16 +41,19 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     <script src="js/bootstrap.min.js"></script>
   </head>
   <body>
-    <div class="modal-body">
+    <div class="">
       <div class="well">
         <ul class="nav nav-tabs">
             <?php
             if(IsUserLoggedIn()) {
                 echo '<li class="'.GetTabStatusStr('login').'"><a href="?page=login&action=logout">Logout</a></li>';
                 echo '<li class="'.GetTabStatusStr('creditData').'"><a href="?page=creditData">Kreditdaten</a></li>';
-                echo '<li class="'.GetTabStatusStr('userData').'"><a href="?page=userData">Benutzer</a></li>';
+                if(IsUserAdmin()) {
+                    echo '<li class="'.GetTabStatusStr('userData').'"><a href="?page=userData">Benutzer</a></li>';
+                }
             } else {
-                echo '<li class="active"><a href="?page=login">Login</a></li>';
+                echo '<li class="'.GetTabStatusStr('userData').'"><a href="?page=login">Login</a></li>';
+				echo '<li class="'.GetTabStatusStr('createAccountForm').'"><a href="?page=createAccountForm">Account erstellen</a></li>';
             }
             ?>
         </ul>
@@ -52,6 +61,9 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
             switch($_GET['page']) {
                 case 'login':
                     include 'page/loginForm.php';
+                    break;
+				case 'createAccountForm':
+                    include 'page/createAccountForm.php';
                     break;
                 case 'userData':
                     include 'page/userData.php';

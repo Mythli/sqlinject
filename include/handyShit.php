@@ -13,13 +13,21 @@ function IsUserLoggedIn() {
     return $_SESSION['loginData'] == TRUE;
 }
 
-function IsAdmin() {
+function IsUserAdmin() {
     if(IsUserLoggedIn()) {
         if($_SESSION['loginData']['login'] == 'admin') {
-            return true;
+            return TRUE;
         }
     }
-    return false;
+    return FALSE;
+}
+
+function IsSafe() {
+	return $_SESSION['safe'];
+}
+
+function SafePath() {
+	return IsSafe() ? 'safe' : 'unsafe';
 }
 
 ?>

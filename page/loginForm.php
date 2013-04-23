@@ -1,6 +1,6 @@
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane active in" id="login">
-    <form class="form-horizontal" action='index.php?page=login' method="POST">
+    <form class="form-horizontal" action='index.php?page=login&action=login' method="POST">
       <fieldset>
         <div id="legend">
           <legend class="">Login</legend>
