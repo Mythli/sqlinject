@@ -14,6 +14,7 @@ function createAccount($login, $email, $password, $firstName, $lastName) {
 	$result = mysql_query($sql)
 		or die('Failed to execute query '.$sql.': ' . mysql_error());
 	$row = mysql_fetch_assoc($result);
+	
 	if($row['userCount'] < 1) {
 		$sql = "
 			insert into
@@ -35,6 +36,7 @@ function createAccount($login, $email, $password, $firstName, $lastName) {
 		";
 		$result = mysql_query($sql)
 			or die('Failed to execute query '.$sql.': ' . mysql_error());
+		
 		return TRUE;
 	} else {
 		return FALSE;

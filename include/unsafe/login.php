@@ -1,6 +1,6 @@
 <?php
 
-function Login($userName, $password) {
+function Login($login, $password) {
 	$sql = "
         select
             id,
@@ -8,7 +8,7 @@ function Login($userName, $password) {
         from
             user
         where
-            login = '" . $userName . "' and
+            login = '" . $login . "' and
             password = '" . $password . "'
     ";
 	$result = mysql_query($sql)
