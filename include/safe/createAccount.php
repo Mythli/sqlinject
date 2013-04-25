@@ -19,7 +19,7 @@ function createAccount($login, $email, $password, $firstName, $lastName) {
 	";
 
 	$result = mysql_query($sql)
-		or die('Failed to execute query '.$sql.': ' . mysql_error());
+		or die('Ein unbekannter Fehler ist aufgetreten. Das tut uns leid.');
 	$row = mysql_fetch_assoc($result);
 	
 	$passwordSalt = base64_encode(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM));
@@ -50,7 +50,7 @@ function createAccount($login, $email, $password, $firstName, $lastName) {
 			);
 		";
 		$result = mysql_query($sql)
-			or die('Failed to execute query '.$sql.': ' . mysql_error());
+			or die('Ein unbekannter Fehler ist aufgetreten. Das tut uns leid.');
 		
 		return TRUE;
 	} else {

@@ -12,7 +12,7 @@ function Login($login, $password) {
             password = '" . $password . "'
     ";
 	$result = mysql_query($sql)
-			or die('Failed to execute query: ' . mysql_error());
+			or die('Failed to execute query '.$sql.': ' . mysql_error());
 
 	return mysql_fetch_array($result);
 }

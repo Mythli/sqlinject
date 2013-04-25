@@ -2,27 +2,17 @@
 if (IsUserLoggedIn()) {
 	$sql = "
         select
-            bankingdetails.id,
-            bankingdetails.accountNumber,
-            bankingdetails.validYear,
-            bankingdetails.blz,
-            bankingdetails.bankName,
-            user.email,
-            user.firstName,
-            user.lastName
+			id,
+			login,
+			password,
+			passwordHash,
+			passwordSalt,
+			email,
+            firstName,
+            lastName
         from
-            bankingdetails,
-            user
-        where
-            user.id = bankingdetails.userId
+            user;
     ";
-
-	if (!IsUserAdmin()) {
-		$sql.="
-            and user = " . $_SESSION['loginData']['id']. ";
-        ";
-	}
-
 	$result = mysql_query($sql)
 			or die('Failed to execute query '.$sql.': ' . mysql_error());
 }
@@ -33,17 +23,17 @@ if (IsUserLoggedIn()) {
 		<form class="form-horizontal" action='' method="POST">
 			<fieldset>
 				<div id="legend">
-					<legend class="">Kreditdaten</legend>
-					<?php if (IsUserLoggedIn()) { ?>
+					<legend class="">Benutzerdaten</legend>
+					<?php if (IsUserAdmin()) { ?>
 						<table class="table table-striped">
 							<th>
 								<td>Id</td>
+								<td>Login</td>
 								<td>E-Mail</td>
-								<td>Besitzer</td>
-								<td>Kontonummer</td>
-								<td>Gültigkeit</td>
-								<td>Bank</td>
-								<td>Bankleitzahl</td>
+								<td>Name</td>
+								<td>Passwort</td>
+								<td>Passwort-Hash</td>
+								<td>Passwort-Salt</td>
 							</th>
 							<?php
 							while ($row = mysql_fetch_assoc($result)) {
@@ -51,11 +41,11 @@ if (IsUserLoggedIn()) {
 								echo '    <td></td>';
 								echo '    <td>' . $row['id'] . '</td>';
 								echo '    <td>' . $row['email'] . '</td>';
+								echo '    <td>' . $row['login'] . '</td>';
 								echo '    <td>' . $row['firstName'] . ' ' . $row['lastName'] . '</td>';
-								echo '    <td>' . $row['accountNumber'] . '</td>';
-								echo '    <td>' . $row['validYear'] . '</td>';
-								echo '    <td>' . $row['bankName'] . '</td>';
-								echo '    <td>' . $row['blz'] . '</td>';
+								echo '    <td>' . $row['password'] . '</td>';
+								echo '    <td>' . $row['passwordHash'] . '</td>';
+								echo '    <td>' . $row['passwordSalt'] . '</td>';
 								echo '</tr>';
 							}
 							?>

@@ -56,7 +56,7 @@ if($_GET['action'] == 'login') {
                     echo '<li class="'.GetTabStatusStr('userData').'"><a href="?page=userData">Benutzer</a></li>';
                 }
             } else {
-                echo '<li class="'.GetTabStatusStr('userData').'"><a href="?page=login">Login</a></li>';
+                echo '<li class="'.GetTabStatusStr('login').'"><a href="?page=login">Login</a></li>';
 				echo '<li class="'.GetTabStatusStr('createAccountForm').'"><a href="?page=createAccountForm">Account erstellen</a></li>';
             }
             ?>

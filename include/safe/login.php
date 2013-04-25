@@ -14,7 +14,7 @@ function GetSaltFromUser($login) {
 	";
 	
 	$result = mysql_query($sql)
-			or die('Failed to execute query: ' . mysql_error());
+			or die('Ein unbekannter Fehler ist aufgetreten. Das tut uns leid.');
 	$saltArr = mysql_fetch_assoc($result);
 	return $saltArr['passwordSalt'];
 }
@@ -38,7 +38,7 @@ function Login($login, $password) {
 		limit 0,1
     ";
 	$result = mysql_query($sql)
-			or die('Failed to execute query: ' . mysql_error());
+			or die('Ein unbekannter Fehler ist aufgetreten. Das tut uns leid.');
 
 	return mysql_fetch_assoc($result);
 }
