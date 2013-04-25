@@ -24,8 +24,8 @@ if(isset($_GET['mode'])) {
 require_once 'include/'.  SafePath().'/login.php';
 
 // store login data in session variable
-if($_GET['action'] == 'login' && isset($_POST['username']) && isset($_POST['password'])) {
-    $_SESSION['loginData'] = Login($_POST['username'], $_POST['password']);
+if($_GET['action'] == 'login') {
+    $_SESSION['loginData'] = Login($_POST['login'], $_POST['password']);
 }
 ?>
 

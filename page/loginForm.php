@@ -1,5 +1,5 @@
 <div id="myTabContent" class="tab-content">
-  <div class="tab-pane active in" id="login">
+  <div class="tab-pane active in" id="loginForm">
     <form class="form-horizontal" action='index.php?page=login&action=login' method="POST">
       <fieldset>
         <div id="legend">
@@ -20,9 +20,9 @@
             ?>
             <div class="control-group">
               <!-- Username -->
-              <label class="control-label"  for="username">Username</label>
+              <label class="control-label"  for="login">Login</label>
               <div class="controls">
-                <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+                <input type="text" id="login" name="login" placeholder="Login" class="input-xlarge">
               </div>
             </div>
 
