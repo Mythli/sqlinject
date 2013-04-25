@@ -26,7 +26,8 @@ if(!IsUserLoggedIn() && $_GET['action'] == 'createAccount') {
 					<!-- Username -->
 					<label class="control-label"  for="login">Login</label>
 					<div class="controls">
-						<input type="text" id="login" name="login" placeholder="Login" class="input-xlarge">
+						<input type="text" minlength="3" id="login" name="login" placeholder="Login" class="input-xlarge" />
+						<p class="help-block"></p>
 					</div>
 				</div>
 
@@ -34,7 +35,8 @@ if(!IsUserLoggedIn() && $_GET['action'] == 'createAccount') {
 					<!-- Password-->
 					<label class="control-label" for="password">Password</label>
 					<div class="controls">
-						<input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+						<input type="password" minlength="3" id="password" name="password" placeholder="" class="input-xlarge" />
+						<p class="help-block"></p>
 					</div>
 				</div>
 
@@ -42,7 +44,8 @@ if(!IsUserLoggedIn() && $_GET['action'] == 'createAccount') {
 					<!-- Password-->
 					<label class="control-label" for="email">E-Mail</label>
 					<div class="controls">
-						<input type="text" id="email" name="email" placeholder="E-Mail" class="input-xlarge">
+						<input type="email" id="email" name="email" placeholder="E-Mail" class="input-xlarge" />
+						<p class="help-block"></p>
 					</div>
 				</div>
 
@@ -50,7 +53,8 @@ if(!IsUserLoggedIn() && $_GET['action'] == 'createAccount') {
 					<!-- Password-->
 					<label class="control-label" for="firstName">Vorname</label>
 					<div class="controls">
-						<input type="text" id="firstName" name="firstName" placeholder="Vorname" class="input-xlarge">
+						<input type="text" minlength="3" id="firstName" name="firstName" placeholder="Vorname" class="input-xlarge" />
+						<p class="help-block"></p>
 					</div>
 				</div>
 				
@@ -58,7 +62,8 @@ if(!IsUserLoggedIn() && $_GET['action'] == 'createAccount') {
 					<!-- Password-->
 					<label class="control-label" for="lastName">Nachname</label>
 					<div class="controls">
-						<input type="text" id="lastName" name="lastName" placeholder="Nachname" class="input-xlarge">
+						<input type="text" minlength="3" id="lastName" name="lastName" placeholder="Nachname" class="input-xlarge" />
+						<p class="help-block"></p>
 					</div>
 				</div>
 

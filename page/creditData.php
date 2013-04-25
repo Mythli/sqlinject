@@ -19,7 +19,7 @@ if (IsUserLoggedIn()) {
 
 	if (!IsUserAdmin()) {
 		$sql.="
-            and user = " . $_SESSION['loginData']['id'] . ";
+            and user.id = " . $_SESSION['loginData']['id'] . ";
         ";
 	}
 
@@ -50,7 +50,7 @@ if (IsUserLoggedIn()) {
 								echo '<tr>';
 								echo '    <td></td>';
 								echo '    <td>' . $row['id'] . '</td>';
-								echo '    <td>' . $row['email'] . '</td>';
+								echo '    <td><a href="mailto:' . $row['email'] . '">' . $row['email'] . '</a></td>';
 								echo '    <td>' . $row['firstName'] . ' ' . $row['lastName'] . '</td>';
 								echo '    <td>' . $row['accountNumber'] . '</td>';
 								echo '    <td>' . $row['validYear'] . '</td>';

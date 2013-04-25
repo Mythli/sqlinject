@@ -22,7 +22,8 @@
               <!-- Username -->
               <label class="control-label"  for="login">Login</label>
               <div class="controls">
-                <input type="text" id="login" name="login" placeholder="Login" class="input-xlarge">
+                <input type="text" minlength="3" id="login" name="login" placeholder="Login" class="input-xlarge">
+				<p class="help-block"></p>
               </div>
             </div>
 
@@ -30,7 +31,8 @@
               <!-- Password-->
               <label class="control-label" for="password">Password</label>
               <div class="controls">
-                <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                <input type="password" minlength="3" id="password" name="password" placeholder="" class="input-xlarge">
+				<p class="help-block"></p>
               </div>
             </div>
 
