@@ -35,7 +35,7 @@ if(!IsUserLoggedIn() && $_GET['action'] == 'createAccount') {
 					<!-- Password-->
 					<label class="control-label" for="password">Password</label>
 					<div class="controls">
-						<input type="password" minlength="3" id="password" name="password" placeholder="" class="input-xlarge" />
+						<input type="password" minlength="8" id="password" name="password" placeholder="" class="input-xlarge" />
 						<p class="help-block"></p>
 					</div>
 				</div>

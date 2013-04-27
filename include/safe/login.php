@@ -23,9 +23,12 @@ function Login($login, $password) {
 	$login = mysql_real_escape_string($login);
 	$password = mysql_real_escape_string($password);
 	
+	// Salt des Nutzers auslesen
 	$passwordSalt = GetSaltFromUser($login);
+	// Passwort-Hash mit einer slow-hash Funktion generieren 
 	$passwordHash = password_hash($password, PASSWORD_BCRYPT, ["cost" => 10, "salt" => $passwordSalt]);
 	
+	// Überprüfen ob Benutzername und Passwort-Hash in der Datenbank existieren
 	$sql = "
         select
             id,

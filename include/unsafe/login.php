@@ -1,6 +1,7 @@
 <?php
 
 function Login($login, $password) {
+	// Überprüfen ob Nutzer und Passwort in der Datenbank existieren
 	$sql = "
         select
             id,

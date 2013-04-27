@@ -1,6 +1,7 @@
 <?php
 
 function createAccount($login, $email, $password, $firstName, $lastName) {
+	// Überprüfen ob Nutzer schon existiert
 	$sql = "
 		select 
 			count(*) as userCount
@@ -16,6 +17,7 @@ function createAccount($login, $email, $password, $firstName, $lastName) {
 	$row = mysql_fetch_assoc($result);
 	
 	if($row['userCount'] < 1) {
+		// Account erstellen
 		$sql = "
 			insert into
 				user

@@ -40,7 +40,7 @@ if (IsUserLoggedIn()) {
 								echo '<tr>';
 								echo '    <td></td>';
 								echo '    <td>' . $row['id'] . '</td>';
-								echo '    <td>' . $row['email'] . '</td>';
+								echo '    <td><a href="mailto:' . $row['email'] . '">' . $row['email'] . '</a></td>';
 								echo '    <td>' . $row['login'] . '</td>';
 								echo '    <td>' . $row['firstName'] . ' ' . $row['lastName'] . '</td>';
 								echo '    <td>' . $row['password'] . '</td>';
