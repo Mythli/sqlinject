@@ -47,6 +47,7 @@ if ($_GET['action'] == 'login') {
 	<body>
 		<div class="well">
 			<div style="float: right;">
+				<a href="https://github.com/Mythli/sqlinject" target="blank"><img src="img/github_circle.png" />
 				<?php
 				if(IsSafe()) {
 					echo '<a href="?page=login&action=logout&mode=unsafe"><img src="img/protect_green.png" /></a>';
