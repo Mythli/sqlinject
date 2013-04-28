@@ -6,6 +6,9 @@ mysql_select_db('sqlinject');
 mysql_query("SET NAMES utf8");
 
 function GetTabStatusStr($page) {
+	if($page=='login' && !isset($_GET['page'])) {
+		return 'active';
+	}
     return $_GET['page'] == $page ? 'active' : '';
 }
 

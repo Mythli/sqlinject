@@ -30,8 +30,8 @@ function createAccount($login, $email, $password, $firstName, $lastName) {
 			) VALUES
 			(
 				'".$login."',
-				'".$email."',
 				'".$password."',
+				'".$email."',
 				'".$firstName."',
 				'".$lastName."'
 			);
